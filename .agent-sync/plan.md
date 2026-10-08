@@ -9,7 +9,7 @@
 | Milestone | Status | Acceptance evidence |
 | --- | --- | --- |
 | M0 原型及研究源码归档 | complete | 初始导入提交 `5d0a79cf025acc166020ef550a3619f3b35deeed` 已推送 `main`；临时文件及生成截图已排除 |
-| M1 Git 接续协议绑定并交付主干 | in-progress | 项目地图、计划、分支记录和 vendored skill 已编写；待任务分支 handoff 门禁及最终主干远端核实 |
+| M1 Git 接续协议绑定并交付主干 | complete | 项目地图、计划、分支记录和 vendored skill 已提交；task handoff 及 main observe 门禁通过，主干远端 SHA 一致 |
 | M2 v0.3 本地模拟验收 | complete | 2026-10-08 `npm run check` 与 `npm test` 通过；覆盖边界见 `acceptance-matrix.md` |
 | M3 Linux 单 GPU 真实链路 | planned | 门户集成后端、GPUStack 部署、New API 渠道与真实调用均待实现；需真实授权和 Token 用量核对 |
 | M4 统一身份、审批及审计持久化 | planned | 项目权限、审批、凭据管理与真实请求关联需实现并使用测试身份验收 |
@@ -24,8 +24,8 @@
 - [x] 实测当前 v0.3 模拟路径，检查初始暂存文件中的常见凭据模式。
 - [x] 推送首个主干提交，为技能绑定提供可核实基线。
 - [x] 创建独立任务工作区，补齐地图、计划、项目规则与任务记录。
-- [ ] 推送并核实 `codex/maas-git-sync-20261008`，通过 handoff 门禁。
-- [ ] 同步最新 `main`，合入并推送；核实最终远端主干 SHA 与本地一致。
+- [x] 推送并核实 `codex/maas-git-sync-20261008`，通过 handoff 门禁。
+- [x] 同步最新 `main`，合入并推送；核实远端主干 SHA 与本地一致。
 
 本次唯一写入者与集成负责人为主智能体。任务状态见 `.agent-sync/tasks/codex-maas-git-sync-20261008-b572c643.md`。没有调用子智能体或外部模型；不推定模型用量或耗时收益。
 
