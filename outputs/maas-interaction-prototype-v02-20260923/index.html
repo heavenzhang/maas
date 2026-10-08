@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>MatrixCube MaaS · 多角色交互原型 v0.2</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- 本地交互样机：所有对象与状态均为虚构演示数据；不连接真实服务。 -->
+  <div class="demo-ribbon">交互原型 v0.2 · 本地模拟数据 · 未连接真实模型、GPU、身份或账务系统</div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="assets/logo-chip-white.png" alt="摩度标识"><div><strong>MatrixCube</strong><small>MAAS OPERATIONS</small></div></div>
+      <div class="space-card"><small>演示空间</small><strong>科研服务组织</strong><span>所有角色与状态仅在本浏览器模拟</span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav id="main-nav" aria-label="主导航"></nav>
+      <div class="sidebar-foot"><span class="pulse-dot"></span><div><strong>方案演示模式</strong><small>无外部服务连接</small></div></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar">
+        <div class="breadcrumb"><span>MatrixCube / </span><strong id="page-label">工作台</strong></div>
+        <div class="topbar-right"><label class="role-select">演示视角 <select id="role-select" aria-label="演示视角"><option value="developer">开发者</option><option value="model-admin">模型管理员</option><option value="operator">平台运营</option></select></label><button id="reset-demo" class="text-button" type="button">重置演示</button><span class="avatar">演</span></div>
+      </header>
+      <main id="content" tabindex="-1"></main>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

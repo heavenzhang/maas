@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171421">
+  <title>MatrixCube MaaS · 集成交互原型</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+    原型假设：
+    1. 受众是产品、技术和首批试点客户；本次演示一个项目从申请访问到私有模型调用的端到端路径。
+    2. 采用现有紫光摩度品牌角标和官网紫色，界面设计是新方案，不是现有线上产品截图。
+    3. 组件职责基于官方开源项目资料；数据、Key、响应、GPU 与调用追踪全部为本地模拟。
+    4. 不连接 New API、SGLang、KServe、APISIX 或任何真实供应商，避免误将 Mock 当集成验收。
+  -->
+  <div class="prototype-ribbon" role="status">交互原型 · 本地模拟环境 · 未连接真实模型、GPU 或账务系统</div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand-lockup">
+        <img src="assets/logo-chip-white.png" alt="紫光摩度品牌标识">
+        <div><strong>MatrixCube</strong><span>MAAS CONTROL</span></div>
+      </div>
+      <div class="workspace-switch"><small>当前空间</small><strong>摩度演示组织</strong><span>原型工作区 · 无真实数据</span></div>
+      <nav class="side-nav" aria-label="产品功能">
+        <button class="nav-item active" type="button" data-nav="overview"><span class="nav-index">01</span>工作台<span class="nav-arrow">↗</span></button>
+        <button class="nav-item" type="button" data-nav="catalog"><span class="nav-index">02</span>模型目录<span class="nav-arrow">↗</span></button>
+        <button class="nav-item" type="button" data-nav="access"><span class="nav-index">03</span>访问授权<span class="nav-arrow">↗</span></button>
+        <button class="nav-item" type="button" data-nav="playground"><span class="nav-index">04</span>调用工作台<span class="nav-arrow">↗</span></button>
+        <button class="nav-item" type="button" data-nav="usage"><span class="nav-index">05</span>用量事件<span class="nav-arrow">↗</span></button>
+        <button class="nav-item" type="button" data-nav="infrastructure"><span class="nav-index">06</span>算力与部署<span class="nav-arrow">↗</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <span class="foot-dot" aria-hidden="true"></span>
+        <div><strong>方案演示模式</strong><small>所有服务连接均待验证</small></div>
+      </div>
+    </aside>
+
+    <div class="main-frame">
+      <header class="topbar">
+        <div class="topbar-title"><span>产品原型 / </span><strong id="current-section">工作台</strong></div>
+        <div class="topbar-actions">
+          <span class="topbar-scope">项目：科研工作台</span>
+          <button class="quiet-button" type="button" id="reset-demo">重置演示</button>
+          <span class="avatar" aria-label="演示用户">演</span>
+        </div>
+      </header>
+
+      <main id="main-content">
+        <section class="page active" id="view-overview" aria-labelledby="overview-title">
+          <div class="eyebrow">MATRIXCUBE / SERVICE OPERATIONS</div>
+          <div class="page-heading split-heading">
+            <div><h1 id="overview-title">从算力到可用的模型服务</h1><p>一条对用户清晰、对运营可治理、对基础设施可追溯的服务路径。</p></div>
+            <button class="primary-button" type="button" data-go="playground">体验一次调用 <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="overview-note"><strong>这不是线上运行监控。</strong> 下方展示预期集成关系；状态、请求和用量均为模拟。New API 与 SGLang 已存在官方渠道关系，但本项目尚未部署联调。</div>
+          <div class="section-label"><span>01 / 一次请求经过哪里</span><button type="button" class="text-button" data-go="infrastructure">查看组件分工 ↗</button></div>
+          <div class="flow-map" aria-label="模拟请求链路">
+            <button type="button" data-go="access" class="flow-node"><small>申请与使用</small><strong>项目 / API Key</strong><span>摩度业务控制面</span></button>
+            <div class="flow-link" aria-hidden="true">→</div>
+            <button type="button" data-go="infrastructure" class="flow-node"><small>入口与安全</small><strong>APISIX</strong><span>入口层候选</span></button>
+            <div class="flow-link" aria-hidden="true">→</div>
+            <button type="button" data-go="infrastructure" class="flow-node"><small>模型路由</small><strong>New API</strong><span>模型网关候选</span></button>
+            <div class="flow-link" aria-hidden="true">→</div>
+            <button type="button" data-go="catalog" class="flow-node flow-node-feature"><small>私有模型推理</small><strong>SGLang</strong><span>KServe 部署适配待验证</span></button>
+          </div>
+          <div class="dashboard-grid">
+            <div class="surface dashboard-main">
+              <div class="surface-head"><div><span class="eyebrow">DEVELOPER JOURNEY</span><h2>从模型选择到可追溯调用</h2></div><span class="step-count">4 STEPS</span></div>
+              <div class="journey-list">
+                <button type="button" data-go="catalog"><span>01</span><strong>选择模型</strong><em>看能力、部署方式与接入条件</em><b>↗</b></button>
+                <button type="button" data-go="access"><span>02</span><strong>申请 Key</strong><em>指定项目与调用用途，模拟审批</em><b>↗</b></button>
+                <button type="button" data-go="playground"><span>03</span><strong>发起调用</strong><em>用同一个 API 入口访问私有模型</em><b>↗</b></button>
+                <button type="button" data-go="usage"><span>04</span><strong>核对事件</strong><em>查看 request_id 与模拟用量</em><b>↗</b></button>
+              </div>
+            </div>
+            <div class="surface spotlight">
+              <div class="surface-head"><div><span class="eyebrow">PRIVATE INFERENCE</span><h2>SGLang 已进入演示主路径</h2></div></div>
+              <p>模型由 SGLang 暴露兼容接口，经 New API 的 SGLang 渠道统一接入。摩度控制面负责项目授权、预算规则和正式账本边界。</p>
+              <div class="spotlight-lines"><div><span>模型端点</span><strong>OpenAI 兼容 · 设计目标</strong></div><div><span>服务生命周期</span><strong>KServe 适配待 PoC</strong></div><div><span>实际 GPU / 服务</span><strong>未连接</strong></div></div>
+              <button type="button" class="outline-button" data-go="playground">打开调用工作台</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="view-catalog" aria-labelledby="catalog-title" hidden>
+          <div class="eyebrow">MODEL CATALOG / DEMO DATA</div>
+          <div class="page-heading"><h1 id="catalog-title">模型目录</h1><p>同一目录呈现公有与私有模型；模型名称及能力仅用于展示交互。</p></div>
+          <div class="filter-row"><button type="button" class="filter-chip selected" data-filter="all">全部模型</button><button type="button" class="filter-chip" data-filter="private">私有推理</button><button type="button" class="filter-chip" data-filter="public">外部模型</button><span>2 个演示模型 · 0 个真实端点</span></div>
+          <div class="model-grid" id="model-grid"></div>
+          <div class="inline-explain"><strong>选型说明</strong><p>SGLang 是私有模型的推理引擎，不负责租户审批和正式计费；New API 负责模型渠道与统一接口。这里把二者放在同一条调用路径，但不会把“可配置”当成“已通过联调”。</p></div>
+        </section>
+
+        <section class="page" id="view-access" aria-labelledby="access-title" hidden>
+          <div class="eyebrow">ACCESS GOVERNANCE / DEMO WORKFLOW</div>
+          <div class="page-heading"><h1 id="access-title">访问授权</h1><p>以项目为边界申请调用权限。审批流仅在浏览器本地模拟，不创建真实 Key。</p></div>
+          <div class="access-grid">
+            <div class="surface form-surface"><div class="surface-head"><div><span class="eyebrow">REQUEST</span><h2>申请项目 API Key</h2></div></div>
+              <form id="key-form">
+                <label>所属项目<input name="project" value="科研工作台" required maxlength="40"></label>
+                <label>申请用途<textarea name="purpose" rows="3" placeholder="例如：校内科研助手的私有模型调用" required maxlength="140"></textarea></label>
+                <label>访问模型<select name="model"><option value="private">示例·企业私有文本模型（SGLang）</option><option value="public">示例·外部通用模型</option></select></label>
+                <div class="form-foot"><span>提交后进入演示审批队列；不生成真实凭据。</span><button class="primary-button" type="submit">提交模拟申请</button></div>
+              </form>
+            </div>
+            <div class="surface approval-surface"><div class="surface-head"><div><span class="eyebrow">REVIEW</span><h2>审批与可用凭据</h2></div><button type="button" class="mini-toggle" id="review-toggle" aria-pressed="false">切换审批视角</button></div>
+              <div id="key-list" class="key-list"></div>
+              <div class="review-note" id="review-note">当前为申请者视角。可切换到审批视角体验通过或驳回；这不对应真实 IAM 权限。</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="view-playground" aria-labelledby="playground-title" hidden>
+          <div class="eyebrow">API STUDIO / SIMULATED REQUEST</div>
+          <div class="page-heading split-heading"><div><h1 id="playground-title">调用工作台</h1><p>体验统一入口如何把请求送到 SGLang 私有推理路径，并形成可追踪事件。</p></div><span class="status-pill">未连接真实 API</span></div>
+          <div class="studio-grid">
+            <div class="surface studio-input"><div class="surface-head"><div><span class="eyebrow">REQUEST BUILDER</span><h2>构造一次调用</h2></div></div>
+              <form id="call-form">
+                <label>选择模型<select id="call-model" name="model"><option value="private">示例·企业私有文本模型 / SGLang</option><option value="public">示例·外部通用模型 / New API</option></select></label>
+                <label>项目 Key<select id="call-key" name="key"></select></label>
+                <label>输入内容<textarea name="prompt" id="prompt-input" rows="7" required placeholder="例如：请概括这份科研文档适合的模型服务方式。">请用两句话说明企业私有模型如何通过统一 API 提供服务。</textarea></label>
+                <div class="studio-bottom"><span>本地规则生成演示回复，不会上传输入文本。</span><button class="primary-button" type="submit" id="call-submit">模拟发起调用 <span aria-hidden="true">↗</span></button></div>
+              </form>
+            </div>
+            <div class="surface studio-output"><div class="surface-head"><div><span class="eyebrow">RESPONSE & TRACE</span><h2>响应与请求轨迹</h2></div><span class="response-badge" id="response-status">等待调用</span></div>
+              <div class="response-body" id="response-body">选择模型并发起一次模拟请求，这里将展示回复、request_id 和每一层的职责。</div>
+              <div class="trace-list" id="trace-list"></div>
+            </div>
+          </div>
+          <div class="code-surface"><div><span class="eyebrow">DEVELOPER HANDOFF</span><h2>预期客户端接入方式</h2><p>仅为接口形态示例；域名不可访问，Key 为占位符。</p></div><button type="button" class="quiet-button" id="copy-snippet">复制示例</button><pre id="code-snippet"><code>curl https://maas.example.invalid/v1/chat/completions \
+  -H "Authorization: Bearer ${API_KEY}" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"demo-sglang-chat","messages":[{"role":"user","content":"你好"}]}'</code></pre></div>
+        </section>
+
+        <section class="page" id="view-usage" aria-labelledby="usage-title" hidden>
+          <div class="eyebrow">USAGE EVENTS / LOCAL SIMULATION</div>
+          <div class="page-heading"><h1 id="usage-title">用量事件</h1><p>每次模拟调用形成一条可追溯事件；不等于正式计费账本或供应商对账结果。</p></div>
+          <div class="usage-summary"><div><small>事件来源</small><strong>浏览器本地模拟</strong></div><div><small>已记录演示调用</small><strong id="event-count">0</strong></div><div><small>正式账本</small><strong>未连接</strong></div></div>
+          <div class="surface table-surface"><div class="surface-head"><div><span class="eyebrow">EVENT STREAM</span><h2>最近请求</h2></div></div><div class="table-wrap"><table><thead><tr><th>request_id</th><th>模型路径</th><th>状态</th><th>模拟 token</th><th>时间</th></tr></thead><tbody id="usage-rows"></tbody></table></div></div>
+          <div class="inline-explain"><strong>账务边界</strong><p>New API 的运行日志可作为事件来源；摩度控制面还需实现幂等入账、预算预占/确认、价格版本、客户计费和供应商应付。此原型只表现事件如何被用户看见。</p></div>
+        </section>
+
+        <section class="page" id="view-infrastructure" aria-labelledby="infra-title" hidden>
+          <div class="eyebrow">INTEGRATION BLUEPRINT / NOT DEPLOYED</div>
+          <div class="page-heading"><h1 id="infra-title">算力与部署</h1><p>把平台组件分工展示给运营与技术人员；这里不是实际集群监控。</p></div>
+          <div class="infra-columns">
+            <div class="surface infra-primary"><div class="surface-head"><div><span class="eyebrow">ONLINE INFERENCE</span><h2>私有模型服务路径</h2></div><span class="status-pill">适配待 PoC</span></div>
+              <div class="infra-stack"><div><span class="stack-number">01</span><strong>MatrixCube 控制面</strong><p>组织、项目、Key 审批、预算规则和正式账本。</p><em>拟建业务职责</em></div><div><span class="stack-number">02</span><strong>APISIX → New API</strong><p>入口保护、统一模型 API、渠道路由与运行用量。</p><em>优先验证组合</em></div><div><span class="stack-number">03</span><strong>KServe → SGLang</strong><p>私有模型部署生命周期与 OpenAI 兼容推理端点。</p><em>部署适配待验证</em></div></div>
+            </div>
+            <div class="surface infra-secondary"><div class="surface-head"><div><span class="eyebrow">CAPACITY & TRAINING</span><h2>算力管理边界</h2></div></div>
+              <div class="infra-metric"><span>在线推理</span><strong>由模型服务与推理引擎承接</strong></div><div class="infra-metric"><span>训练 / 批任务</span><strong>Volcano 等调度候选</strong></div><div class="infra-metric"><span>GPU 纳管</span><strong>目标异构硬件尚未接入</strong></div><div class="infra-divider"></div><p>Volcano 不为每个在线 API 请求排队。训练控制器、作业准入和 GPU 共享分别与调度器分层评估。</p>
+            </div>
+          </div>
+          <div class="alternatives"><div><span class="eyebrow">SELECTION GATE</span><h2>仍未锁定的替代路径</h2></div><p>模型网关须与 LiteLLM、Bifrost 比较；入口与单层 AI 网关须与 Higress、Agent Router 比较；推理引擎须以相同模型和负载比较 SGLang、vLLM。原型只展示首条验证路径，不代表选型已完成。</p></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

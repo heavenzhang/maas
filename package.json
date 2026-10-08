@@ -1,0 +1,17 @@
+{
+  "name": "mo-maas-prototypes",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Moedu MaaS research and browser-local integration prototypes",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node --check outputs/maas-integration-prototype-v03-20261002/app.js && node --check outputs/maas-interaction-prototype-v02-20260923/app.js && node --check outputs/maas-interaction-prototype-20260923/app.js",
+    "test": "npm run test:v03",
+    "test:v03": "node outputs/maas-integration-prototype-v03-20261002/test-prototype.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

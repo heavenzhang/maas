@@ -1,0 +1,858 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "摩度 MaaS 开源调研与定位建议",
+    "description": "面向摩度管理层的开源 MaaS 技术版图、竞争边界和 MatrixCube 产品定位报告。",
+    "generatedAt": "2026-09-23T04:53:29Z",
+    "cards": [],
+    "charts": [
+      {
+        "id": "oss_stars_chart",
+        "title": "重点开源项目 GitHub 社区规模",
+        "subtitle": "Stars，截至 2026 年 9 月 23 日；仅作社区信号，不等同于产品质量或生产可用性",
+        "type": "bar",
+        "dataset": "oss_chart_projects",
+        "sourceId": "github_oss_metadata",
+        "valueFormat": "number",
+        "encodings": {
+          "x": {
+            "field": "project",
+            "type": "nominal",
+            "label": "项目"
+          },
+          "y": {
+            "field": "stars",
+            "type": "quantitative",
+            "label": "GitHub stars"
+          },
+          "tooltip": [
+            {
+              "field": "layer",
+              "type": "nominal",
+              "label": "层级"
+            },
+            {
+              "field": "license",
+              "type": "nominal",
+              "label": "License"
+            },
+            {
+              "field": "status",
+              "type": "nominal",
+              "label": "状态"
+            },
+            {
+              "field": "recommendation",
+              "type": "nominal",
+              "label": "摩度建议"
+            }
+          ]
+        }
+      }
+    ],
+    "tables": [
+      {
+        "id": "oss_projects_table",
+        "title": "重点开源项目选型表",
+        "subtitle": "表格用于选型边界；社区体量见上图",
+        "dataset": "oss_projects_table",
+        "sourceId": "github_oss_metadata",
+        "density": "dense",
+        "defaultSort": {
+          "field": "project",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "project",
+            "label": "项目",
+            "type": "text"
+          },
+          {
+            "field": "layer_and_license",
+            "label": "层级 / License",
+            "type": "text"
+          },
+          {
+            "field": "decision",
+            "label": "摩度建议 / 状态",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "target_customers_table",
+        "title": "建议目标客群与产品入口",
+        "subtitle": "优先服务需要多供给、多账户、多参与方结算的组织，避免进入公网 API 低价竞争",
+        "dataset": "target_customers_table",
+        "sourceId": "positioning_synthesis",
+        "density": "dense",
+        "defaultSort": {
+          "field": "priority",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "priority",
+            "label": "优先级",
+            "type": "text"
+          },
+          {
+            "field": "customer",
+            "label": "客群",
+            "type": "text"
+          },
+          {
+            "field": "entry_and_need",
+            "label": "产品入口与核心需求",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "requirements_table",
+        "title": "参考需求与摩度升级基线",
+        "subtitle": "以招标条款和技术响应为下限，增加可运营、可结算、可验收的产品要求",
+        "dataset": "requirements_baseline",
+        "sourceId": "reference_pdf",
+        "density": "dense",
+        "defaultSort": {
+          "field": "domain",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "domain",
+            "label": "能力域",
+            "type": "text"
+          },
+          {
+            "field": "reference",
+            "label": "参考基线",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "requirements_upgrade_table",
+        "title": "摩度升级要求与验收方式",
+        "subtitle": "把功能描述改写为可回放、可对账、可故障注入和可出具证据的产品门槛",
+        "dataset": "requirements_upgrade_table",
+        "sourceId": "reference_pdf",
+        "density": "dense",
+        "defaultSort": {
+          "field": "domain",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "domain",
+            "label": "能力域",
+            "type": "text"
+          },
+          {
+            "field": "upgrade_and_acceptance",
+            "label": "升级要求与验收",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "github_oss_metadata",
+        "label": "GitHub 开源项目元数据快照",
+        "path": "https://api.github.com/repos/vllm-project/vllm"
+      },
+      {
+        "id": "maas_repo",
+        "label": "heavenzhang/maas 仓库与 API",
+        "path": "https://api.github.com/repos/heavenzhang/maas"
+      },
+      {
+        "id": "huawei_maas",
+        "label": "华为云 MaaS 功能介绍",
+        "path": "https://support.huaweicloud.com/productdesc-maas/productdesc_maas_0005.html"
+      },
+      {
+        "id": "volcano_ark",
+        "label": "火山方舟官方文档",
+        "path": "https://www.volcengine.com/docs/82379/?lang=zh"
+      },
+      {
+        "id": "siliconflow_models",
+        "label": "硅基流动模型中心",
+        "path": "https://www.siliconflow.cn/models"
+      },
+      {
+        "id": "beijing_voucher",
+        "label": "北京亦庄模型券即时补贴平台",
+        "path": "https://jxj.beijing.gov.cn/ztzl/ywzt/lqjs/kfdt/202607/t20260724_4784545.html"
+      },
+      {
+        "id": "shanghai_voucher",
+        "label": "2026 年上海模型券（Token 券）通知",
+        "path": "https://www.shanghai.gov.cn/gwk/search/content/cd1dcb1e5cb4449cbc36c69befafcc0a"
+      },
+      {
+        "id": "suzhou_platform",
+        "label": "苏州人工智能惠企政策公共服务平台征选",
+        "path": "https://fg.suzhou.gov.cn/szfgw/ggl/202608/0d84c8dddee24bca925b2c9801be08af.shtml"
+      },
+      {
+        "id": "shenzhen_voucher",
+        "label": "深圳 2026 年模型服务机构和模型券公示",
+        "path": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/tzgg/content/post_12957048.html"
+      },
+      {
+        "id": "reference_pdf",
+        "label": "算力管理平台-第四册技术部分（PDF 页 20-31，文内页码 288-299）",
+        "path": "算力管理平台-第四册技术部分.pdf.pdf"
+      },
+      {
+        "id": "positioning_synthesis",
+        "label": "摩度 MaaS 调研与定位分析笔记",
+        "path": "source-notes.md"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# 摩度 MaaS 开源调研与定位建议"
+      },
+      {
+        "id": "executive_summary",
+        "type": "markdown",
+        "body": "## Executive Summary\n\n- **不建议把摩度 MaaS 定位成“又一个模型 API 聚合器”。** 推理引擎、Kubernetes 编排、统一 API、路由和虚拟 Key 等能力已有成熟开源项目；这些是必备能力，不是足够强的商业定位。\n- **建议定位为 MatrixCube（摩方矩阵）内含的“AI 模型与 Token 运营中枢”。** 它把公有云、地方算力和私有模型转换为可采购、可预算、可计量、可抵扣、可结算、可审计、可嵌入行业流程的 Token 服务。\n- **摩度真正应自研的是商业控制面。** 包括组织/租户、价格版本、预算与配额、计量账本、券规则、供应商应付、客户账单、对账结算、SLA、审计和业务价值映射。\n- **当前 GitHub 仓库还是空的。** 以下是产品定位与建设建议，不代表已实现或已上线。"
+      },
+      {
+        "id": "repo_status",
+        "type": "markdown",
+        "sourceId": "maas_repo",
+        "body": "## 先纠正一个前提：指定仓库现在还不是 MaaS 平台\n\n[heavenzhang/maas](https://github.com/heavenzhang/maas) 是 2026 年 9 月 23 日创建的空公开仓库。GitHub 当前显示 “This repository is empty.”；无 commit、实际分支、README、License、源码、构建配置、CI 或 Release。\n\n**影响：** 它应当被当作“新项目的代码与交付载体”，不能列为已有开源 MaaS 项目或已实现产品。第一次提交应先固定产品边界、架构决策、License 和 MVP 验收标准，再写功能代码。"
+      },
+      {
+        "id": "reference_baseline",
+        "type": "markdown",
+        "sourceId": "reference_pdf",
+        "body": "## 这份技术需求可以作为 V1 下限，但不应成为产品上限\n\n用户提供的基础条款要求异构算力资源池（不低于 200 张卡）、训练/推理、API-Key 认证与审批、Token 统计和账单、多模型路由、统一身份、漏洞修复以及优先级调度。配套 PDF 技术部分还扩展到模型全生命周期、OpenAI 兼容 API、多模型路由、KV Cache/请求队列驱动的弹性伸缩、服务注册发现、vLLM/SGLang/TensorRT 多引擎、多模态、GPU 容器、Volcano 异构调度和补丁闭环。\n\n**这些已经是一个不错的技术基线，但主要仍是“把模型服务跑起来”。** 要支撑摩度的定位，还需增加多租户价格版本、原始用量账本、供应商应付、客户账单、券核销、审计与业务价值映射，并把所有要求改成可测试、可证明的验收条款。"
+      },
+      {
+        "id": "requirements_table_block",
+        "type": "table",
+        "tableId": "requirements_table"
+      },
+      {
+        "id": "requirements_upgrade_table_block",
+        "type": "table",
+        "tableId": "requirements_upgrade_table"
+      },
+      {
+        "id": "oss_finding",
+        "type": "markdown",
+        "body": "## 开源版图已经把底层做得很强，但没有替摩度完成“运营结算”\n\n重点项目形成了清晰分层：vLLM / SGLang 处理高性能推理，KServe / Ray Serve / BentoML 处理部署、弹性和制品，LiteLLM / APISIX / Agent Router 处理协议、路由和流量治理。\n\n下图只用 GitHub stars 展示社区体量，不做技术性能排名。选型必须另行比较目标硬件、模型类型、延迟、吞吐、功能完整性、运维能力和 License。"
+      },
+      {
+        "id": "oss_chart",
+        "type": "chart",
+        "chartId": "oss_stars_chart"
+      },
+      {
+        "id": "oss_implication",
+        "type": "markdown",
+        "body": "### 选型含义\n\n**推理、编排和网关应该插件化复用，不应成为摩度的主要自研投入。** 建议以 vLLM 为默认数据面、SGLang 为高性能备选；以 LiteLLM 核心部分作 provider adapter；需要 Kubernetes 生产编排时评估 KServe；边缘和小规模私有化由 LocalAI/Xinference 补位。\n\n**许可证不能只看项目首页。** LiteLLM 的核心内容为 MIT，enterprise/ 目录另行授权；Dify 的社区许可对多租户运营和前端标识存在附加条件；TGI 虽然当前 main 是 Apache-2.0，但仓库已归档。生产引入前需要固定版本、生成 SBOM 并进行法务复核。"
+      },
+      {
+        "id": "oss_table",
+        "type": "table",
+        "tableId": "oss_projects_table"
+      },
+      {
+        "id": "market_gap",
+        "type": "markdown",
+        "body": "## 市场空位不在“模型更多”，而在“多方参与的运营闭环”\n\n云厂商和模型服务商已经覆盖模型目录、API、评测、精调、部署、监控和按 Token 计费。[华为云 MaaS](https://support.huaweicloud.com/productdesc-maas/productdesc_maas_0005.html) 已提供模型广场、在线推理、自定义接入点和 Token/时延监控；[火山方舟](https://www.volcengine.com/docs/82379/?lang=zh) 覆盖推理、评测和精调；[硅基流动](https://www.siliconflow.cn/models) 主打一个 API 调用多模型。\n\n相比之下，2026 年的地方政策执行已显示一个更明确的需求：[北京亦庄](https://jxj.beijing.gov.cn/ztzl/ywzt/lqjs/kfdt/202607/t20260724_4784545.html) 要求多模型统一展示、统一结算、即时补贴与资格自动核验；[上海](https://www.shanghai.gov.cn/gwk/search/content/cd1dcb1e5cb4449cbc36c69befafcc0a) 的模型券同时支持三方云端 API 和私有化部署；[苏州](https://fg.suzhou.gov.cn/szfgw/ggl/202608/0d84c8dddee24bca925b2c9801be08af.shtml) 公开征选的平台需承担产品上架、政策全流程、运营维护、数据安全、审计和绩效评价；[深圳](https://www.sz.gov.cn/cn/xxgk/zfxxgj/tzgg/content/post_12957048.html) 已有模型服务机构入库与模型券申领、审核、公示机制。\n\n**这些证据支持的不是“政府一定会买摩度的平台”，而是“市场存在供给准入—企业资格—预算占用—用量核销—服务商对账—财政审计—绩效评价”的运营需求。** 这是摩度应该优先验证的空位。"
+      },
+      {
+        "id": "positioning",
+        "type": "markdown",
+        "body": "## 推荐定位：MatrixCube 是平台，MaaS 是内含能力\n\n> **MatrixCube（摩方矩阵）是面向区域政府/园区、智算中心和集团企业的 AI 模型与 Token 运营中枢。它把多源算力和模型转换为可采购、可预算、可计量、可抵扣、可结算、可审计的 Token 服务，并通过行业 Agent 和业务流程形成持续消耗、价值证明与预算续费。**\n\n对外一句话：**摩度不与模型厂商争 API 供给，而负责把多源模型供给变成可运营、可结算、能进入行业流程的 AI 服务。**\n\n建议固定五层结构：\n\n1. **供给连接层**：公有云模型 API、地方算力、私有模型、第三方推理平台。\n2. **MaaS 模型服务层**：模型目录、部署、统一 API、虚拟 Key、路由、fallback、限流、配额、监控和混合部署。\n3. **TokenOps 运营结算层**：账户、预算、服务包、券规则、价格版本、实时抵扣、用量账本、服务商应付、客户账单和对账。\n4. **RegionOps 政策运营层**：服务商准入、企业资格、政策规则、补贴预算、核销、审计、绩效和客服。\n5. **IndustryOps 行业消耗层**：Skill、Agent、知识库和业务工作流，把 Token 使用关联到部门、项目、任务与可核验结果。\n\n上层业务可用“三本账”理解：**资源账**记录哪家供给方提供了多少服务和应付成本；**资金账**记录企业预算、服务包、平台优惠、政府券的占用与核销；**价值账**记录 Token 进入了什么 Agent 和工作流、产生了什么结果。"
+      },
+      {
+        "id": "competitive_boundary",
+        "type": "markdown",
+        "body": "## 竞争边界：四个不做，四个必须做\n\n**不做：**\n\n- 不自研通用基础模型，不与千问、豆包、文心等争模型入口。\n- 不以公网低价 API 流量为核心，不参与每百万 Token 单价战。\n- 不把通用网关、异构推理或接入模型数量包装成独家壁垒。\n- 不把 MatrixCube、MaaS、Token 平台和 Agent 并列为多个平台品牌。\n\n**必须做：**\n\n- 统一组织/项目/开发者权限、预算、配额和模型路由策略。\n- 建立幂等、可重放、可对账的原始用量事件和价格版本，让资源账与资金账可核验。\n- 支持多供应商应付、客户账单、券抵扣、财政核销和审计留痕。\n- 把用量与行业 Agent/工作流的任务结果连接起来，为客户续费和预算扩容提供证据。"
+      },
+      {
+        "id": "customers",
+        "type": "markdown",
+        "body": "## 先做“三方联合运营”，不要先做公网开发者市场\n\n最有效的首批项目不是孤立的政府平台或孤立的 IDC MaaS，而是“**地方政府/园区提供政策与场景 + 算力运营方提供本地供给 + 摩度提供 MatrixCube、Token 运营与行业应用**”的三方模式。\n\n公网个人开发者对价格、模型数量和充值便利度高度敏感，这是云厂商与专业 API 服务商的强项，不适合作为摩度的第一战场。"
+      },
+      {
+        "id": "customer_table",
+        "type": "table",
+        "tableId": "target_customers_table"
+      },
+      {
+        "id": "build_boundary",
+        "type": "markdown",
+        "body": "## 建设边界：底层插件化，商业控制面必须自主\n\n### 建议复用\n\n- **推理：** vLLM 为主，SGLang 作高性能备选，Triton/LocalAI/Xinference 按硬件和场景补位。\n- **编排：** 需要 Kubernetes 多集群、弹性和滚动发布时评估 KServe；复杂 Python workload 用 Ray Serve/BentoML。\n- **协议与流量：** LiteLLM 用于 provider 协议适配；APISIX 或 Agent Router 承担通用鉴权、限流和流量治理。\n\n### 建议自研并长期持有\n\n- 组织、租户、项目、开发者和服务商权限模型。\n- 模型目录、区域/租户价格版本、套餐、配额、预算和路由策略。\n- 原始用量事件、Token/GPU 秒计量、幂等入账、差异对账和账本冻结。\n- 客户账单、供应商应付、券核销、结算报表、审计链路和 SLA 证据。\n- 行业 Agent/工作流与用量、成本、结果之间的关联。"
+      },
+      {
+        "id": "next_steps",
+        "type": "markdown",
+        "body": "## 推荐的下一步\n\n1. **先用一页 Product Charter 锁定边界。** 明确 MatrixCube 为主平台、MaaS 为内含能力，定义三类买方、三本账、不做范围和 MVP 验收门。\n2. **用一个真实三方项目验证最小闭环。** 至少要有 2 个供给源、2 个模型、3 个租户/项目账户，完成“请求→路由→用量事件→客户扣减→供应商应付→对账”。\n3. **把核心验收放在账本和对账，不是 API 200。** 同一请求重试不重复计费；价格版本可追溯；供应商记录、网关记录和客户账单可对账；券额与企业自有预算不混同。\n4. **开源组件先做两周技术选型 PoC。** 重点对比 vLLM/SGLang、LiteLLM 的功能与授权边界、KServe 的运维成本，用目标硬件和目标模型实测，不用社区热度代替选型。\n5. **在空仓库的首批提交中先补齐治理文件。** README、LICENSE/NOTICE、ARCHITECTURE.md、ADR、威胁模型、数据分类、账本语义、开源 SBOM 与验收测试应早于大量 UI 页面。"
+      },
+      {
+        "id": "further_questions",
+        "type": "markdown",
+        "body": "## 还需要答清的问题\n\n- 首个可验收客户是政府/园区、算力运营方，还是集团企业？三者的账户、安全、结算和交付边界不同。\n- 摩度在 Token 服务中是主要责任人还是代理人？这会影响定价、发票、收入准则和风险承担。\n- 政府券是实时抵扣还是事后核销？是财政资金、平台优惠还是服务商折扣？三者必须独立建账。\n- 首期必须纳管哪些硬件、模型和网络边界？是否有国产 GPU、离线环境、等保、数据不出域等刚性要求？\n- 行业应用的价值证据是节省人时、缩短周期、收入提升、服务量，还是其他业务结果？没有这一层，Token 消耗不等于客户价值。"
+      },
+      {
+        "id": "caveats",
+        "type": "markdown",
+        "body": "## 假设与边界\n\n- 报告基于截至 2026 年 9 月 23 日的公开 GitHub 仓库、官方产品文档和地方政府通知。功能、许可证、社区活跃度和政策执行状态均可能变化。\n- GitHub stars 仅用作社区体量信号，不能代替安全、性能、可用性、运维成本、软硬件兼容和商业授权验证。\n- 政府文件证明市场存在运营和政策执行需求，不证明摩度已具备资质、项目机会、签约能力或可获得收入。苏州征选更明确要求中选平台在服务期内免费提供技术和运营支持，因此政府项目不天然等于平台软件收入。\n- 未获得摩度内部合同、现有客户、算力资源、成本、安全和交付数据，因此客群优先级与收入模式是待验证的策略建议，不是已核实经营结论。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-09-23T04:53:29Z",
+    "status": "ready",
+    "datasets": {
+      "oss_projects": [
+        {
+          "project": "vLLM",
+          "repo": "vllm-project/vllm",
+          "layer": "推理引擎",
+          "license": "Apache-2.0",
+          "stars": 92465,
+          "status": "活跃",
+          "role": "默认高吞吐推理数据面",
+          "recommendation": "首选复用"
+        },
+        {
+          "project": "LiteLLM",
+          "repo": "BerriAI/litellm",
+          "layer": "模型网关",
+          "license": "核心 MIT；enterprise 另行授权",
+          "stars": 59433,
+          "status": "活跃",
+          "role": "100+ provider 协议适配、路由与 fallback",
+          "recommendation": "只作 provider adapter，不交出核心账本"
+        },
+        {
+          "project": "LocalAI",
+          "repo": "mudler/LocalAI",
+          "layer": "边缘/私有推理",
+          "license": "MIT",
+          "stars": 49200,
+          "status": "活跃",
+          "role": "CPU、Apple Silicon 与多后端本地推理",
+          "recommendation": "离线、边缘和低配硬件补位"
+        },
+        {
+          "project": "Ray / Ray Serve",
+          "repo": "ray-project/ray",
+          "layer": "分布式 serving",
+          "license": "Apache-2.0",
+          "stars": 43902,
+          "status": "活跃",
+          "role": "可编程分布式 runtime、复杂模型 DAG",
+          "recommendation": "按 workload 选用，不作唯一控制面"
+        },
+        {
+          "project": "SGLang",
+          "repo": "sgl-project/sglang",
+          "layer": "推理引擎",
+          "license": "Apache-2.0",
+          "stars": 36344,
+          "status": "活跃",
+          "role": "Prefix cache、PD 分离、结构化输出、多模态",
+          "recommendation": "vLLM 的高性能备选"
+        },
+        {
+          "project": "Apache APISIX",
+          "repo": "apache/apisix",
+          "layer": "API/AI 网关",
+          "license": "Apache-2.0",
+          "stars": 17200,
+          "status": "活跃",
+          "role": "鉴权、流控、入口安全、模型 fallback",
+          "recommendation": "复用基础流量治理"
+        },
+        {
+          "project": "Triton Inference Server",
+          "repo": "triton-inference-server/server",
+          "layer": "推理引擎",
+          "license": "BSD-3-Clause",
+          "stars": 11003,
+          "status": "活跃",
+          "role": "多框架 GPU/CPU 推理与动态批处理",
+          "recommendation": "非 LLM 与 NVIDIA 栈补位"
+        },
+        {
+          "project": "TGI",
+          "repo": "huggingface/text-generation-inference",
+          "layer": "推理引擎",
+          "license": "当前 main 为 Apache-2.0",
+          "stars": 10900,
+          "status": "2026-03-21 归档",
+          "role": "Hugging Face 历史生产 serving 工具",
+          "recommendation": "仅作兼容/迁移参考"
+        },
+        {
+          "project": "Xinference",
+          "repo": "xorbitsai/inference",
+          "layer": "推理/管理一体",
+          "license": "Apache-2.0",
+          "stars": 9591,
+          "status": "活跃",
+          "role": "多模态、多引擎、WebUI、分布式和 K8s",
+          "recommendation": "快速私有化与异构适配"
+        },
+        {
+          "project": "BentoML",
+          "repo": "bentoml/BentoML",
+          "layer": "Serving SDK/制品",
+          "license": "Apache-2.0",
+          "stars": 8856,
+          "status": "活跃",
+          "role": "模型 API、制品、容器化和多模型 pipeline",
+          "recommendation": "自定义模型上线 SDK 候选"
+        },
+        {
+          "project": "KServe",
+          "repo": "kserve/kserve",
+          "layer": "K8s 模型平台",
+          "license": "Apache-2.0",
+          "stars": 5990,
+          "status": "CNCF Incubating",
+          "role": "部署、弹性、canary、ModelMesh 和多框架推理",
+          "recommendation": "生产级 K8s 编排首选候选"
+        },
+        {
+          "project": "Agent Router",
+          "repo": "theagentrouter/agent-router",
+          "layer": "云原生 AI 网关",
+          "license": "Apache-2.0",
+          "stars": 2100,
+          "status": "较年轻",
+          "role": "Envoy 路线的模型/MCP 流量控制",
+          "recommendation": "中长期 PoC，避免早期深绑定"
+        }
+      ],
+      "oss_chart_projects": [
+        {
+          "project": "vLLM",
+          "repo": "vllm-project/vllm",
+          "layer": "推理引擎",
+          "license": "Apache-2.0",
+          "stars": 92465,
+          "status": "活跃",
+          "role": "默认高吞吐推理数据面",
+          "recommendation": "首选复用"
+        },
+        {
+          "project": "LiteLLM",
+          "repo": "BerriAI/litellm",
+          "layer": "模型网关",
+          "license": "核心 MIT；enterprise 另行授权",
+          "stars": 59433,
+          "status": "活跃",
+          "role": "100+ provider 协议适配、路由与 fallback",
+          "recommendation": "只作 provider adapter，不交出核心账本"
+        },
+        {
+          "project": "LocalAI",
+          "repo": "mudler/LocalAI",
+          "layer": "边缘/私有推理",
+          "license": "MIT",
+          "stars": 49200,
+          "status": "活跃",
+          "role": "CPU、Apple Silicon 与多后端本地推理",
+          "recommendation": "离线、边缘和低配硬件补位"
+        },
+        {
+          "project": "Ray",
+          "repo": "ray-project/ray",
+          "layer": "分布式 serving",
+          "license": "Apache-2.0",
+          "stars": 43902,
+          "status": "活跃",
+          "role": "可编程分布式 runtime、复杂模型 DAG",
+          "recommendation": "按 workload 选用，不作唯一控制面"
+        },
+        {
+          "project": "SGLang",
+          "repo": "sgl-project/sglang",
+          "layer": "推理引擎",
+          "license": "Apache-2.0",
+          "stars": 36344,
+          "status": "活跃",
+          "role": "Prefix cache、PD 分离、结构化输出、多模态",
+          "recommendation": "vLLM 的高性能备选"
+        }
+      ],
+      "oss_projects_table": [
+        {
+          "project": "vLLM",
+          "layer_and_license": "推理引擎 | Apache-2.0",
+          "decision": "首选复用；状态：活跃"
+        },
+        {
+          "project": "LiteLLM",
+          "layer_and_license": "模型网关 | 核心 MIT；enterprise 另行授权",
+          "decision": "只作 provider adapter，不交出核心账本；状态：活跃"
+        },
+        {
+          "project": "LocalAI",
+          "layer_and_license": "边缘/私有推理 | MIT",
+          "decision": "离线、边缘和低配硬件补位；状态：活跃"
+        },
+        {
+          "project": "Ray / Ray Serve",
+          "layer_and_license": "分布式 serving | Apache-2.0",
+          "decision": "按 workload 选用，不作唯一控制面；状态：活跃"
+        },
+        {
+          "project": "SGLang",
+          "layer_and_license": "推理引擎 | Apache-2.0",
+          "decision": "vLLM 的高性能备选；状态：活跃"
+        },
+        {
+          "project": "Apache APISIX",
+          "layer_and_license": "API/AI 网关 | Apache-2.0",
+          "decision": "复用基础流量治理；状态：活跃"
+        },
+        {
+          "project": "Triton Inference Server",
+          "layer_and_license": "推理引擎 | BSD-3-Clause",
+          "decision": "非 LLM 与 NVIDIA 栈补位；状态：活跃"
+        },
+        {
+          "project": "TGI",
+          "layer_and_license": "推理引擎 | 当前 main 为 Apache-2.0",
+          "decision": "仅作兼容/迁移参考；状态：2026-03-21 归档"
+        },
+        {
+          "project": "Xinference",
+          "layer_and_license": "推理/管理一体 | Apache-2.0",
+          "decision": "快速私有化与异构适配；状态：活跃"
+        },
+        {
+          "project": "BentoML",
+          "layer_and_license": "Serving SDK/制品 | Apache-2.0",
+          "decision": "自定义模型上线 SDK 候选；状态：活跃"
+        },
+        {
+          "project": "KServe",
+          "layer_and_license": "K8s 模型平台 | Apache-2.0",
+          "decision": "生产级 K8s 编排首选候选；状态：CNCF Incubating"
+        },
+        {
+          "project": "Agent Router",
+          "layer_and_license": "云原生 AI 网关 | Apache-2.0",
+          "decision": "中长期 PoC，避免早期深绑定；状态：较年轻"
+        }
+      ],
+      "target_customers": [
+        {
+          "priority": "P0",
+          "customer": "地方政府、园区、AI 小镇及运营公司",
+          "need": "多供给准入、模型券/Token 券执行、核销、审计和绩效",
+          "product": "MatrixCube Region"
+        },
+        {
+          "priority": "P0",
+          "customer": "智算中心、IDC、运营商、地方算力公司",
+          "need": "将异构算力转换为可销售的模型/Token 服务并完成对账结算",
+          "product": "MatrixCube Operator"
+        },
+        {
+          "priority": "P1",
+          "customer": "央国企与大型集团",
+          "need": "多云多模型、私有模型、部门预算、成本分摊和合规审计",
+          "product": "MatrixCube Enterprise"
+        },
+        {
+          "priority": "P1",
+          "customer": "行业解决方案商与系统集成商",
+          "need": "不自建网关、计量、账务和结算，快速交付行业 Agent",
+          "product": "OEM/白标调用与结算底座"
+        },
+        {
+          "priority": "P2",
+          "customer": "学校、科研机构和中型行业客户",
+          "need": "按项目、课题、部门管理 AI 预算并接入工作流",
+          "product": "行业包 + Token 账户"
+        }
+      ],
+      "target_customers_table": [
+        {
+          "priority": "P0",
+          "customer": "地方政府、园区、AI 小镇及运营公司",
+          "entry_and_need": "MatrixCube Region：多供给准入、模型券/Token 券执行、核销、审计和绩效"
+        },
+        {
+          "priority": "P0",
+          "customer": "智算中心、IDC、运营商、地方算力公司",
+          "entry_and_need": "MatrixCube Operator：将异构算力转换为可销售的模型/Token 服务并完成对账结算"
+        },
+        {
+          "priority": "P1",
+          "customer": "央国企与大型集团",
+          "entry_and_need": "MatrixCube Enterprise：多云多模型、私有模型、部门预算、成本分摊和合规审计"
+        },
+        {
+          "priority": "P1",
+          "customer": "行业解决方案商与系统集成商",
+          "entry_and_need": "OEM/白标调用与结算底座：不自建网关、计量、账务和结算，快速交付行业 Agent"
+        },
+        {
+          "priority": "P2",
+          "customer": "学校、科研机构和中型行业客户",
+          "entry_and_need": "行业包 + Token 账户：按项目、课题、部门管理 AI 预算并接入工作流"
+        }
+      ],
+      "requirements_baseline": [
+        {
+          "domain": "算力资源池",
+          "reference": "异构算力卡池化，支持不低于 200 张卡；GPU 容器、切分和 Volcano 调度",
+          "upgrade": "多集群/多地域联邦资源目录，拓扑、健康、配额、预留、成本与数据驻留策略统一治理",
+          "acceptance": "资源账与集群 API 可对账；无超分配；故障、扩容、回收全链路可追溯"
+        },
+        {
+          "domain": "模型全生命周期",
+          "reference": "模型训练、推理、模型库、模板/自定义部署和持续升级",
+          "upgrade": "模型/适配器/推理镜像版本化，签名、来源、评测门、灰度、回滚和废弃政策一体化",
+          "acceptance": "任一线上 endpoint 能回溯模型、镜像、配置、评测结果与审批记录；灰度失败可回滚"
+        },
+        {
+          "domain": "API 身份与秘钥",
+          "reference": "API-Key 认证授权、申请审批、优先级路由与统一账号",
+          "upgrade": "组织/项目/应用级 scope，短期凭证、KMS 托管、轮换/吊销/过期，RBAC+ABAC 和职责分离",
+          "acceptance": "过期、吊销、越权 Key 立即拒绝；申请-审批-签发-轮换-吊销全程审计"
+        },
+        {
+          "domain": "统一身份",
+          "reference": "对接招标方统一认证、打通账号体系",
+          "upgrade": "OIDC/SAML 2.0、LDAP/AD、SCIM 同步、MFA，多组织/项目继承与外部 IdP 隔离",
+          "acceptance": "SSO 登录、离职禁用、组织调动和权限继承有自动化测试与审计证据"
+        },
+        {
+          "domain": "计量与账单",
+          "reference": "Token 统计量、调用统计和计费账单生成",
+          "upgrade": "原始用量事件、幂等入账、价格版本、回放/补记/冲正、客户账单、供应商应付与差异对账",
+          "acceptance": "同一请求重试不重复计费；网关、供应商和账本三方可对账；历史价格可追溯"
+        },
+        {
+          "domain": "智能路由",
+          "reference": "多模型路由、按 Key 优先级路由、负载均衡与 fallback",
+          "upgrade": "按质量、延迟、成本、可用性、数据驻留和租户策略决策，支持灰度、熔断和快速回退",
+          "acceptance": "每次路由保存规则版本、候选节点、决策原因和 fallback 路径；路由可回放"
+        },
+        {
+          "domain": "优先级调度",
+          "reference": "高/中/低用户优先级，Bestfit/Spread，动态分配、抢占与弹性伸缩",
+          "upgrade": "优先级类、配额、预留、公平分享、抢占预算和防饥饿，结合 KV Cache、队列、SLO 和能耗调度",
+          "acceptance": "资源竞争压测下核心业务 SLO 受保护，低优先级不永久饥饿，抢占/恢复有事件记录"
+        },
+        {
+          "domain": "弹性与服务发现",
+          "reference": "按 KV Cache 利用率和活跃请求扩缩容，服务自动注册、发现、故障剔除",
+          "upgrade": "队列/延迟/吞吐/缓存联合指标，冷启动预热、容量预测、多集群流量切换和灾备",
+          "acceptance": "扩容、缩容、故障剔除和跨集群切换在压测/故障注入中完成，无重复计费或请求丢失"
+        },
+        {
+          "domain": "多引擎与多模态",
+          "reference": "vLLM、SGLang、TensorRT 等引擎；大语言、图像、视频等多模态",
+          "upgrade": "统一 adapter 合同、能力声明、硬件兼容矩阵、协议一致性测试和基准测试自动化",
+          "acceptance": "目标模型 x 引擎 x 硬件 x 协议的测试矩阵可重复；切换引擎不改上层 API 和账本语义"
+        },
+        {
+          "domain": "安全与供应链",
+          "reference": "漏洞发现、分级、修复、验证、发布与持续升级",
+          "upgrade": "SBOM、SCA/SAST/DAST、镜像签名与准入、CVE 修复 SLA、秘钥扫描、紧急回滚和客户通知机制",
+          "acceptance": "从 CVE/漏洞到影响定位、修复验证、发布和核实确认的证据链完整；不只交补丁清单"
+        },
+        {
+          "domain": "券、结算与审计",
+          "reference": "原材料未形成完整多方结算闭环",
+          "upgrade": "资源账、资金账、价值账分离；政府券、平台优惠、企业预算分账；供应商应付与绩效报告",
+          "acceptance": "用量可对应到账户、资金来源、供应商、行业任务与可核验结果；账期可冻结与重放"
+        }
+      ],
+      "requirements_upgrade_table": [
+        {
+          "domain": "算力资源池",
+          "upgrade_and_acceptance": "多集群/多地域联邦资源目录，拓扑、健康、配额、预留、成本与数据驻留策略统一治理。验收：资源账与集群 API 可对账；无超分配；故障、扩容、回收全链路可追溯"
+        },
+        {
+          "domain": "模型全生命周期",
+          "upgrade_and_acceptance": "模型/适配器/推理镜像版本化，签名、来源、评测门、灰度、回滚和废弃政策一体化。验收：任一线上 endpoint 能回溯模型、镜像、配置、评测结果与审批记录；灰度失败可回滚"
+        },
+        {
+          "domain": "API 身份与秘钥",
+          "upgrade_and_acceptance": "组织/项目/应用级 scope，短期凭证、KMS 托管、轮换/吊销/过期，RBAC+ABAC 和职责分离。验收：过期、吊销、越权 Key 立即拒绝；申请-审批-签发-轮换-吊销全程审计"
+        },
+        {
+          "domain": "统一身份",
+          "upgrade_and_acceptance": "OIDC/SAML 2.0、LDAP/AD、SCIM 同步、MFA，多组织/项目继承与外部 IdP 隔离。验收：SSO 登录、离职禁用、组织调动和权限继承有自动化测试与审计证据"
+        },
+        {
+          "domain": "计量与账单",
+          "upgrade_and_acceptance": "原始用量事件、幂等入账、价格版本、回放/补记/冲正、客户账单、供应商应付与差异对账。验收：同一请求重试不重复计费；网关、供应商和账本三方可对账；历史价格可追溯"
+        },
+        {
+          "domain": "智能路由",
+          "upgrade_and_acceptance": "按质量、延迟、成本、可用性、数据驻留和租户策略决策，支持灰度、熔断和快速回退。验收：每次路由保存规则版本、候选节点、决策原因和 fallback 路径；路由可回放"
+        },
+        {
+          "domain": "优先级调度",
+          "upgrade_and_acceptance": "优先级类、配额、预留、公平分享、抢占预算和防饥饿，结合 KV Cache、队列、SLO 和能耗调度。验收：资源竞争压测下核心业务 SLO 受保护，低优先级不永久饥饿，抢占/恢复有事件记录"
+        },
+        {
+          "domain": "弹性与服务发现",
+          "upgrade_and_acceptance": "队列/延迟/吞吐/缓存联合指标，冷启动预热、容量预测、多集群流量切换和灾备。验收：扩容、缩容、故障剔除和跨集群切换在压测/故障注入中完成，无重复计费或请求丢失"
+        },
+        {
+          "domain": "多引擎与多模态",
+          "upgrade_and_acceptance": "统一 adapter 合同、能力声明、硬件兼容矩阵、协议一致性测试和基准测试自动化。验收：目标模型 x 引擎 x 硬件 x 协议的测试矩阵可重复；切换引擎不改上层 API 和账本语义"
+        },
+        {
+          "domain": "安全与供应链",
+          "upgrade_and_acceptance": "SBOM、SCA/SAST/DAST、镜像签名与准入、CVE 修复 SLA、秘钥扫描、紧急回滚和客户通知机制。验收：从 CVE/漏洞到影响定位、修复验证、发布和核实确认的证据链完整；不只交补丁清单"
+        },
+        {
+          "domain": "券、结算与审计",
+          "upgrade_and_acceptance": "资源账、资金账、价值账分离；政府券、平台优惠、企业预算分账；供应商应付与绩效报告。验收：用量可对应到账户、资金来源、供应商、行业任务与可核验结果；账期可冻结与重放"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "github_oss_metadata",
+      "query": {
+        "engine": "PostgreSQL-compatible reviewed snapshot",
+        "language": "sql",
+        "sql": "SELECT * FROM (VALUES\n  ('vLLM','vllm-project/vllm','推理引擎','Apache-2.0',92465,'活跃'),\n  ('LiteLLM','BerriAI/litellm','模型网关','核心 MIT；enterprise 另行授权',59433,'活跃'),\n  ('LocalAI','mudler/LocalAI','边缘/私有推理','MIT',49200,'活跃'),\n  ('Ray / Ray Serve','ray-project/ray','分布式 serving','Apache-2.0',43902,'活跃'),\n  ('SGLang','sgl-project/sglang','推理引擎','Apache-2.0',36344,'活跃'),\n  ('Apache APISIX','apache/apisix','API/AI 网关','Apache-2.0',17200,'活跃'),\n  ('Triton Inference Server','triton-inference-server/server','推理引擎','BSD-3-Clause',11003,'活跃'),\n  ('TGI','huggingface/text-generation-inference','推理引擎','当前 main 为 Apache-2.0',10900,'2026-03-21 归档'),\n  ('Xinference','xorbitsai/inference','推理/管理一体','Apache-2.0',9591,'活跃'),\n  ('BentoML','bentoml/BentoML','Serving SDK/制品','Apache-2.0',8856,'活跃'),\n  ('KServe','kserve/kserve','K8s 模型平台','Apache-2.0',5990,'CNCF Incubating'),\n  ('Agent Router','theagentrouter/agent-router','云原生 AI 网关','Apache-2.0',2100,'较年轻')\n) AS reviewed(project, repo, layer, license, stars, status)\nORDER BY stars DESC",
+        "description": "在逐一读取 GitHub repository 元数据并复核官方 README/LICENSE 后，物化为可重放的评审快照。",
+        "tables_used": [
+          "reviewed_github_repository_snapshot_2026_09_23"
+        ],
+        "url": "https://api.github.com/repos/vllm-project/vllm",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "maas_repo",
+      "query": {
+        "engine": "GitHub REST API",
+        "language": "http",
+        "description": "核查 heavenzhang/maas 的仓库元数据、contents、commits、releases、languages 与 community profile。",
+        "url": "https://api.github.com/repos/heavenzhang/maas",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "huawei_maas",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "华为云 MaaS 功能介绍",
+        "url": "https://support.huaweicloud.com/productdesc-maas/productdesc_maas_0005.html",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "volcano_ark",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "火山方舟官方文档",
+        "url": "https://www.volcengine.com/docs/82379/?lang=zh",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "siliconflow_models",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "硅基流动模型中心",
+        "url": "https://www.siliconflow.cn/models",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "beijing_voucher",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "北京亦庄模型券即时补贴平台",
+        "url": "https://jxj.beijing.gov.cn/ztzl/ywzt/lqjs/kfdt/202607/t20260724_4784545.html",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "shanghai_voucher",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "2026 年上海模型券（Token 券）通知",
+        "url": "https://www.shanghai.gov.cn/gwk/search/content/cd1dcb1e5cb4449cbc36c69befafcc0a",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "suzhou_platform",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "苏州人工智能惠企政策公共服务平台征选",
+        "url": "https://fg.suzhou.gov.cn/szfgw/ggl/202608/0d84c8dddee24bca925b2c9801be08af.shtml",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "shenzhen_voucher",
+      "query": {
+        "engine": "Official web document",
+        "language": "html",
+        "description": "深圳 2026 年模型服务机构和模型券公示",
+        "url": "https://www.sz.gov.cn/cn/xxgk/zfxxgj/tzgg/content/post_12957048.html",
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "reference_pdf",
+      "query": {
+        "engine": "PostgreSQL-compatible reviewed snapshot",
+        "language": "sql",
+        "description": "从指定 PDF 的招标基线和技术响应提取能力域，并补入摩度升级要求与建议验收条款。",
+        "sql": "SELECT * FROM (VALUES\n  ('算力资源池', '异构算力卡池化，支持不低于 200 张卡；GPU 容器、切分和 Volcano 调度', '多集群/多地域联邦资源目录，拓扑、健康、配额、预留、成本与数据驻留策略统一治理', '资源账与集群 API 可对账；无超分配；故障、扩容、回收全链路可追溯'),\n  ('模型全生命周期', '模型训练、推理、模型库、模板/自定义部署和持续升级', '模型/适配器/推理镜像版本化，签名、来源、评测门、灰度、回滚和废弃政策一体化', '任一线上 endpoint 能回溯模型、镜像、配置、评测结果与审批记录；灰度失败可回滚'),\n  ('API 身份与秘钥', 'API-Key 认证授权、申请审批、优先级路由与统一账号', '组织/项目/应用级 scope，短期凭证、KMS 托管、轮换/吊销/过期，RBAC+ABAC 和职责分离', '过期、吊销、越权 Key 立即拒绝；申请-审批-签发-轮换-吊销全程审计'),\n  ('统一身份', '对接招标方统一认证、打通账号体系', 'OIDC/SAML 2.0、LDAP/AD、SCIM 同步、MFA，多组织/项目继承与外部 IdP 隔离', 'SSO 登录、离职禁用、组织调动和权限继承有自动化测试与审计证据'),\n  ('计量与账单', 'Token 统计量、调用统计和计费账单生成', '原始用量事件、幂等入账、价格版本、回放/补记/冲正、客户账单、供应商应付与差异对账', '同一请求重试不重复计费；网关、供应商和账本三方可对账；历史价格可追溯'),\n  ('智能路由', '多模型路由、按 Key 优先级路由、负载均衡与 fallback', '按质量、延迟、成本、可用性、数据驻留和租户策略决策，支持灰度、熔断和快速回退', '每次路由保存规则版本、候选节点、决策原因和 fallback 路径；路由可回放'),\n  ('优先级调度', '高/中/低用户优先级，Bestfit/Spread，动态分配、抢占与弹性伸缩', '优先级类、配额、预留、公平分享、抢占预算和防饥饿，结合 KV Cache、队列、SLO 和能耗调度', '资源竞争压测下核心业务 SLO 受保护，低优先级不永久饥饿，抢占/恢复有事件记录'),\n  ('弹性与服务发现', '按 KV Cache 利用率和活跃请求扩缩容，服务自动注册、发现、故障剔除', '队列/延迟/吞吐/缓存联合指标，冷启动预热、容量预测、多集群流量切换和灾备', '扩容、缩容、故障剔除和跨集群切换在压测/故障注入中完成，无重复计费或请求丢失'),\n  ('多引擎与多模态', 'vLLM、SGLang、TensorRT 等引擎；大语言、图像、视频等多模态', '统一 adapter 合同、能力声明、硬件兼容矩阵、协议一致性测试和基准测试自动化', '目标模型 x 引擎 x 硬件 x 协议的测试矩阵可重复；切换引擎不改上层 API 和账本语义'),\n  ('安全与供应链', '漏洞发现、分级、修复、验证、发布与持续升级', 'SBOM、SCA/SAST/DAST、镜像签名与准入、CVE 修复 SLA、秘钥扫描、紧急回滚和客户通知机制', '从 CVE/漏洞到影响定位、修复验证、发布和核实确认的证据链完整；不只交补丁清单'),\n  ('券、结算与审计', '原材料未形成完整多方结算闭环', '资源账、资金账、价值账分离；政府券、平台优惠、企业预算分账；供应商应付与绩效报告', '用量可对应到账户、资金来源、供应商、行业任务与可核验结果；账期可冻结与重放')\n) AS requirements_baseline(domain, reference, upgrade, acceptance)\nORDER BY domain ASC",
+        "tables_used": [
+          "算力管理平台_技术需求_审阅快照"
+        ],
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    },
+    {
+      "id": "positioning_synthesis",
+      "query": {
+        "engine": "PostgreSQL-compatible reviewed snapshot",
+        "language": "sql",
+        "description": "结合开源技术版图、云厂商产品能力、地方券政策和摩度业务边界形成的客群优先级建议。",
+        "sql": "SELECT * FROM (VALUES\n  ('P0', '地方政府、园区、AI 小镇及运营公司', '多供给准入、模型券/Token 券执行、核销、审计和绩效', 'MatrixCube Region'),\n  ('P0', '智算中心、IDC、运营商、地方算力公司', '将异构算力转换为可销售的模型/Token 服务并完成对账结算', 'MatrixCube Operator'),\n  ('P1', '央国企与大型集团', '多云多模型、私有模型、部门预算、成本分摊和合规审计', 'MatrixCube Enterprise'),\n  ('P1', '行业解决方案商与系统集成商', '不自建网关、计量、账务和结算，快速交付行业 Agent', 'OEM/白标调用与结算底座'),\n  ('P2', '学校、科研机构和中型行业客户', '按项目、课题、部门管理 AI 预算并接入工作流', '行业包 + Token 账户')\n) AS target_customers(priority, customer, need, product)\nORDER BY priority ASC",
+        "tables_used": [
+          "maas_positioning_synthesis_2026_09_23"
+        ],
+        "executed_at": "2026-09-23T04:53:29Z"
+      }
+    }
+  ]
+}

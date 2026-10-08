@@ -1,0 +1,24 @@
+# Local dependencies, configuration and machine state
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+*.pem
+*.key
+*.sqlite
+*.sqlite3
+*.db
+
+# Source attachments, extracted PDF pages and working files remain local
+/tmp/
+
+# Generated browser evidence and report debugging artifacts
+**/evidence/
+**/playwright-report/
+**/test-results/
+*.verification-failure.png
+*.tmp-*
+/outputs/maas-positioning-20260923/diag-*
+/outputs/maas-positioning-20260923/debug-*
