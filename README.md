@@ -2,6 +2,8 @@
 
 摩度 MaaS 的研究、交互原型与后续集成开发记录。指定 Git 仓库为 <https://github.com/heavenzhang/maas>，主干为 `main`。
 
+开发接续先阅读 [项目地图](.agent-sync/project-map.md)、[共享计划](.agent-sync/plan.md) 和当前分支的任务记录；Git 同步规则见 [项目工作规则](AGENTS.md) 及仓库自带的 [git-project-sync 技能](.agents/skills/git-project-sync/SKILL.md)。
+
 当前阶段是交互原型与方案验证：尚未部署或接入真实 GPUStack、SGLang、New API，也没有生产服务。演示账号、部署状态、Key、Token 和费用均为模拟数据，不作为硬件性能或投标能力证据。
 
 ## 当前入口
